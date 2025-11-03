@@ -65,6 +65,83 @@
                 "price": "300",
                 "btn": "Add +"
             }
+
+            ,
+            {
+                "id": 9,
+                "img": "./images/d1.png",
+                "title": "chicken biryani",
+                "details": "2 pcs chicken - ryta & salad",
+                "price": "300",
+                "btn": "Add +"
+            }
+
+            ,
+            {
+                "id": 10,
+                "img": "./images/d1.png",
+                "title": "chicken biryani",
+                "details": "2 pcs chicken - ryta & salad",
+                "price": "300",
+                "btn": "Add +"
+            }
+
+            ,
+            {
+                "id": 11,
+                "img": "./images/d1.png",
+                "title": "chicken biryani",
+                "details": "2 pcs chicken - ryta & salad",
+                "price": "300",
+                "btn": "Add +"
+            }
+
+            ,
+            {
+                "id": 12,
+                "img": "./images/d1.png",
+                "title": "chicken biryani",
+                "details": "2 pcs chicken - ryta & salad",
+                "price": "300",
+                "btn": "Add +"
+            }
+              ,
+            {
+                "id": 13,
+                "img": "./images/d1.png",
+                "title": "chicken biryani",
+                "details": "2 pcs chicken - ryta & salad",
+                "price": "300",
+                "btn": "Add +"
+            }
+
+            ,
+            {
+                "id": 14,
+                "img": "./images/d1.png",
+                "title": "chicken biryani",
+                "details": "2 pcs chicken - ryta & salad",
+                "price": "300",
+                "btn": "Add +"
+            }  ,
+            {
+                "id": 15,
+                "img": "./images/d1.png",
+                "title": "chicken biryani",
+                "details": "2 pcs chicken - ryta & salad",
+                "price": "300",
+                "btn": "Add +"
+            }
+
+            ,
+            {
+                "id": 16,
+                "img": "./images/d1.png",
+                "title": "chicken biryani",
+                "details": "2 pcs chicken - ryta & salad",
+                "price": "300",
+                "btn": "Add +"
+            }
         ],
         "nonVeg": [
             {

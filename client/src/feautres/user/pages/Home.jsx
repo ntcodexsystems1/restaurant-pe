@@ -76,7 +76,7 @@ const Home = () => {
           {/* DISH COMPONENTS */}
 
 
-          <aside className='sm:w-4/5   w-full  sm:pl-5   sm:py-4 py-4 pb-36 md:pb-0 overflow-auto scrollbar_hide'>
+          <aside className='sm:w-4/5   w-full  sm:pl-5   sm:py-4 py-4 pb-36  overflow-auto scrollbar_hide'>
 
 
 
