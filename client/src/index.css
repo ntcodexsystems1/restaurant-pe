@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.scrollbar_hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar_hide::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Edge */
+}
+
+
+.my-swal-toast {
+  background-color: #0FB219 !important; /* Tailwind's blue-500 */
+  color: rgb(224, 241, 225) !important;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.swal2-popup
+{
+  width:22rem !important;
+  height:auto !important;
+text-transform: capitalize;
+  padding:5px 15px !important;
+  color:white !important;
+}
+
+.swal2-html-container
+{
+  font-size:14px !important;
+    color:white !important;
+
+
+}
+
+
+
+.swal2-success-ring
+{
+  border-color:white !important;
+  color:white !important;
+  
+}
+
