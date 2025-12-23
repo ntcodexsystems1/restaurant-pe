@@ -27,13 +27,7 @@ const AppRoutes = () => {
       <Route path="/Forgot" element={<Forgot />} />
       <Route path='/Register' element={<Register />} />
 
-      <Route path='/AdminDashboard' element={
-
-        <AdminDashboard />
-      }
-
-
-      />
+      <Route path='/AdminDashboard' element={ <AdminDashboard />}/>
 
       <Route path='/Cart' element={<Cart />} />
       <Route path='/Practical' element={<Practical />} />

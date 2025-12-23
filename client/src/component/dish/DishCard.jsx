@@ -4,11 +4,11 @@ import { NavLink } from 'react-router-dom'
 import { CartContext } from '../context/CartContext';
 import Swal from 'sweetalert2';
 
-const DishCard = ({dishLink}) => {
+const DishCard = () => {
   
-  const [allDishes, setAllDishes] = useState({});
+  const {setAllDishes}= useContext(CartContext);
 
-  const {addToCart, cartBadge, setCartBadge} = useContext(CartContext)
+  const {addToCart, cartBadge, setCartBadge, filterDish} = useContext(CartContext)
 
 
 
@@ -21,7 +21,6 @@ const DishCard = ({dishLink}) => {
       .catch((err) => console.error(err, "error now"));
   }, []);
 
-  const currentDishes = allDishes[dishLink] || [] // fallback to empty array if not found
 
 
 
@@ -46,11 +45,6 @@ Swal.fire({
     setCartBadge(cartBadge + 1);
 
 
-
-
-
-
-
 }
 
 
@@ -65,7 +59,7 @@ Swal.fire({
 <div className='grid lg:grid-cols-3 md:grid-cols-2  gap-2'>
 {
 
-   currentDishes.length > 0 ? (currentDishes.map((item) => (
+   filterDish.length > 0 ? (filterDish.map((item) => (
 
 
   <div key={item.id} className='flex  lg:p-4 md:p-3 gap-2 sm:p-4 p-2  rounded-xl items-center h-auto w-full bg-Secondary shadow-xl'>

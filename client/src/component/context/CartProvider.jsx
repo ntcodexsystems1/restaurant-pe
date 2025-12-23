@@ -1,4 +1,4 @@
-import React, { children, useState } from 'react'
+import React, { children, useCallback, useState, useMemo } from 'react'
 import { CartContext } from './CartContext'
 
 const CartProvider = ({ children }) => {
@@ -6,11 +6,11 @@ const CartProvider = ({ children }) => {
 
    const [cart, setCart] = useState([])
 
-   const addToCart = (item) => {
+   const addToCart = useCallback((item) => {
 
       setCart((prevCart) => [...prevCart, item]);
 
-   };
+   }, []);
 
    const removeCartItem = (id) => {
 
@@ -25,10 +25,33 @@ const CartProvider = ({ children }) => {
 
    const [cartBadge, setCartBadge] = useState(0);
 
+    const [paymentDetails, setPaymentDetails] = useState({
+   
+       orderName: "",
+       tableNo: ""
+   
+   
+     })
+
+       const [dishLink, setDishLink] = useState("veg")
+     
+  const [allDishes, setAllDishes] = useState({});
+
+     const [searchDishs, setSearchDishs] = useState("")
+
+      const currentDishes = allDishes[dishLink] || [] // fallback to empty array if not found
+
+const filterDish =
+
+currentDishes.filter((dish) => (
+
+dish.title.toLowerCase().includes(searchDishs.toLowerCase())
+   
+));
 
    return (
 
-      <CartContext.Provider value={{ cart, addToCart, removeCartItem, cartBadge, setCartBadge }}>
+      <CartContext.Provider value={{ cart, addToCart, removeCartItem, cartBadge, setCartBadge, setPaymentDetails, paymentDetails, searchDishs, setSearchDishs, filterDish, allDishes, setAllDishes, setDishLink, dishLink }}>
 
 
          {children}

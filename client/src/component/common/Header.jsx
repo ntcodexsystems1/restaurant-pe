@@ -11,7 +11,21 @@ import { CartContext } from '../context/CartContext';
 const Header = ({ placeholder, Cart, AdminTitle }) => {
 
 
-const { cartBadge } = useContext(CartContext);
+const { cartBadge, setSearchDishs, searchDishs   } = useContext(CartContext);
+
+
+
+
+const handleChange = (e) => 
+{
+
+setSearchDishs(e.target.value);
+
+
+}
+
+
+
 
 
     return (
@@ -26,7 +40,7 @@ const { cartBadge } = useContext(CartContext);
                 <ul className='flex  h-full w-full'>
 
                     <li className='w-full  h-12'>
-                        <input type="text" className='w-full h-full text-12 md:text-16  px-4 rounded rounded-tr-none rounded-br-none' placeholder={placeholder} />
+                        <input type="text" className='w-full h-full text-12 md:text-16  px-4 rounded rounded-tr-none rounded-br-none' placeholder={placeholder} name="dish search" value={searchDishs} onChange={handleChange} />
                         </li>
 
                     <li className='w-auto bg-slate-100 px-2  h-12 rounded-bl-none rounded-tl-none rounded '>

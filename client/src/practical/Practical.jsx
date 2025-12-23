@@ -1,71 +1,95 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from "react";
+import axios from "axios";
 
-const Practical = () => {
+function App() {
+  // 👇 Step 1: Create state variables for the form
+  const [formData, setFormData] = useState({
+    name: "",
+    address: ""
+  });
 
+  // 👇 Step 2: Handle form input changes
+  const handleChange = (e) => {
+    setFormData(  {
+      ...formData,
+      [e.target.name]: e.target.value
+    });
 
+  };
 
-  const [dataList, setDataList] = useState({ name: "nazim", email: "zk8052272@gmail.com" })
+  // 👇 Step 3: Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // stops page reload
 
-  const [loading, setLoading] = useState(true)
+    try {
+      // Send data to your Node.js backend
+      const res = await axios.post("http://localhost:3000/api/users", formData);
+      alert("form submitted");
 
-  useEffect(() => {
-
-  const data =  setTimeout(() => (
-
-   setLoading(false)
-
-    ), 2000)
-
-  
-}, [])
-
-
-
-
-return (
-
-
-
-
-  <div>
-
-
-
-    {
-
-      loading ? (
-
-        <p>loading...</p>
-
-      ) : (
-
-        <div>
-
-{
-
-        Object.entries(dataList).map(([key, value]) => (
-
-          <ul key={key}>
-            <li>
-              {value}
-            </li>
-
-          </ul>
-
-
-        ))
-        
-        }
-         </div>
-        
-        )
-       
-
+      //alert(res.data.message); // show success message
+      setFormData({ name: "", address: "" }); // clear the form
+      console.log(formData)
+    } catch (err) {
+      console.error(err);
+      alert("Error sending data!");
     }
-  </div>
+  };
 
-) 
+  // 👇 Step 4: Return form UI
+  return (
+    <div style={{
+      maxWidth: "400px",
+      margin: "100px auto",
+      padding: "20px",
+      border: "1px solid #ccc",
+      borderRadius: "10px"
+    }}>
+      <h2>Send Data to MongoDB</h2>
+      <form onSubmit={handleSubmit}>
+        <div style={{ marginBottom: "10px" }}>
+          <label>Name:</label><br />
+          <input
+            type="text"
+            name="name"
+           value={formData.name}
+           onChange={handleChange}
+            placeholder="Enter your name"
+            style={{ width: "100%", padding: "8px" }}
+            required
+          />
+        </div>
+
+        <div style={{ marginBottom: "10px" }}>
+          <label>Address:</label><br />
+          <input
+            type="text"
+            name="address"
+                       onChange={handleChange}
+
+            value={formData.address}
+            placeholder="Enter your address"
+            style={{ width: "100%", padding: "8px" }}
+            required
+          />
+        </div>
+
+        <button
+          type="submit"
+          style={{
+            width: "100%",
+            padding: "10px",
+            backgroundColor: "#007bff",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer"
+          }}
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  );
 }
 
-
-export default Practical
+export default App;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Header from '../../../component/common/Header'
 import SideBar from '../../../component/common/Sidebar'
 import Footer from '../../../component/common/Footer'
@@ -22,6 +22,15 @@ const discount = dishPrice * 0.1;
 const tax =  dishPrice * 0.05
 const totalPrice = dishPrice + tax - discount
 
+
+const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/users')
+      .then(res => res.json())
+      .then(data => setUsers(data))
+      .catch(err => console.error('Error fetching:', err));
+  }, []);
 
   return (
 
@@ -55,7 +64,7 @@ const totalPrice = dishPrice + tax - discount
 
           <SideBar menu={menu} setMenu={setMenu}
 
-            title="Admin pannel"
+            title="control pannel"
             l1="New order"
             l2="Cancel order"
             l3="Help"
@@ -73,7 +82,7 @@ const totalPrice = dishPrice + tax - discount
             <div className='text-black text-center sm:flex hidden  h-auto  justify-end flex-col items-center py-4  '>
 
               <img src={User} alt="" className='w-16  h-16 rounded-full border-2 object-cover border-yellow-500' />
-              <h2 className='font-bold text-14'>nazim </h2>
+              <h2 className='font-bold text-14 capitalize md:text-white text-black'>nazim </h2>
             </div>
           }
 
@@ -117,10 +126,15 @@ const totalPrice = dishPrice + tax - discount
             
              
 
-                  
-                  <tr className='border text-center'>
-                    <td className='border p-2 text-white'>{1}</td>
-                    <td className='border p-2 text-white'>4</td> {/* Replace with actual table number if available */}
+{
+
+users.map((list, index) => (
+
+
+    
+                  <tr className='border text-center' key={index}>
+                    <td className='border p-2 text-white'>1</td>
+                    <td className='border p-2 text-white'>{list.tableNo}</td> {/* Replace with actual table number if available */}
                     <td className='border p-2 text-white'>4</td>
 
                     <td className='border p-2'>
@@ -132,7 +146,7 @@ const totalPrice = dishPrice + tax - discount
                     </td>
 
                     <td className='border p-2 text-white'>
-                      <select className='capitalize text-black font-medium text-12 p-2 bg-Primary rounded'>
+                      <select className='capitalize text-white font-medium text-12 p-2 bg-sky-400 rounded'>
                         <option value="">Select</option>
                         <option value="yes">Yes</option>
                         <option value="no">No</option>
@@ -140,48 +154,24 @@ const totalPrice = dishPrice + tax - discount
                     </td>
 
                     <td className='border p-2 text-white'>
-                      ₹{totalPrice.toFixed(2)}
+                    hh
                     </td>
 
                     <td className='border p-2 text-white'>
-                      <a href="#" className='capitalize text-black font-medium text-12 p-2 bg-Primary rounded'>
+                      <a href="#" className='capitalize text-white font-medium text-12 p-2 bg-red-500 rounded'>
                         Download bill
                       </a>
                     </td>
                   </tr>
 
+
+))
+
+
+}
+              
                   
-                  <tr className='border text-center'>
-                    <td className='border p-2 text-white'>{1}</td>
-                    <td className='border p-2 text-white'>4</td> {/* Replace with actual table number if available */}
-                    <td className='border p-2 text-white'>4</td>
-
-                    <td className='border p-2'>
-                      <select className='capitalize text-black font-medium text-12 p-2 bg-Primary rounded'>
-                        <option value="">Select</option>
-                        <option value="accepted">Accepted</option>
-                        <option value="reject">Reject</option>
-                      </select>
-                    </td>
-
-                    <td className='border p-2 text-white'>
-                      <select className='capitalize text-black font-medium text-12 p-2 bg-Primary rounded'>
-                        <option value="">Select</option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                      </select>
-                    </td>
-
-                    <td className='border p-2 text-white'>
-                      ₹{totalPrice.toFixed(2)}
-                    </td>
-
-                    <td className='border p-2 text-white'>
-                      <a href="#" className='capitalize text-black font-medium text-12 p-2 bg-Primary rounded'>
-                        Download bill
-                      </a>
-                    </td>
-                  </tr>
+              
 
                   
                 

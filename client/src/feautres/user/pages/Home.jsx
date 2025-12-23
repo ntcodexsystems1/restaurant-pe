@@ -4,6 +4,8 @@ import SideBar from '../../../component/common/Sidebar'
 import DishCard from '../../../component/dish/DishCard'
 import Footer from '../../../component/common/Footer'
 import { useState } from 'react'
+import { useContext } from 'react'
+import { CartContext } from '../../../component/context/CartContext'
 
 
 
@@ -13,7 +15,11 @@ const Home = () => {
   const [menu, setMenu] = useState(false);
 
 
-  const [dishLink, setDishLink] = useState("veg")
+const {dishLink, setDishLink} = useContext(CartContext)
+
+
+
+
 
 
   return (
