@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import Logo from '../../../assets/images/logo.png'
+import Logo from '../../../assets/Images/logo.png'
 import { NavLink } from 'react-router-dom'
 import { FaArrowLeft } from "react-icons/fa6";
 import cardPay from "../../../assets/images/cardPay.png"

@@ -8,7 +8,6 @@ import AdminDashboard from '../feautres/dashboard/pages/AdminDashboard'
 import Cart from '../feautres/cart/pages/Cart'
 import FooterBtn from '../feautres/cart/component/FooterBtn'
 import PrivateRoute from '../component/PrivateRoute/PrivateRoutes'
-import Practical from '../practical/Practical'
 import Payment from '../feautres/payment/pages/Payment'
 
 
@@ -30,7 +29,6 @@ const AppRoutes = () => {
       <Route path='/AdminDashboard' element={ <AdminDashboard />}/>
 
       <Route path='/Cart' element={<Cart />} />
-      <Route path='/Practical' element={<Practical />} />
 
       <Route path='/Payment' element={<Payment />} />
       <Route path='/FooterBtn' element={<FooterBtn />} />
